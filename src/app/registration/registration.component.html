@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="registration.component.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form [formGroup]="registrationForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter Your First Name" id="firstName"   formControlName="firstName">
+            <span class="text-danger" *ngIf="field.firstName.invalid && field.firstName.touched">Firstname is </span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter Your Last Name" id="lastName"  formControlName="lastName">
+            <span class="text-danger" *ngIf="field.lastName.invalid && field.lastName.touched">Last name is </span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">Mobile number</span>
+            <input type="text" placeholder="Enter Your Mobile Number" id="mobile"  formControlName="mobile">
+            <span class="text-danger" *ngIf="field.mobile.invalid && field.mobile.touched">Mobile number is </span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter Email"  id="email"   formControlName="email">
+            <span class="text-danger" *ngIf="field.email.invalid && field.email.touched">Email is required </span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter Password"  id="password"   formControlName="password">
+            <span class="text-danger" *ngIf="field.password.invalid && field.password.touched">Password is required </span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">Address </span>
+            <input type="text" placeholder="Enter Your Address" id="address"  formControlName="address">
+            <span class="text-danger" *ngIf="field.address.invalid && field.address.touched">Address is required</span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">City </span>
+            <input type="text" placeholder="Enter Your City" id="city"  formControlName="City">
+            <span class="text-danger" *ngIf="field.city.invalid && field.city.touched">City is required</span><br>
+          </div>
+          <div class="input-box">
+            <span class="details">Pincode </span>
+            <input type="text" placeholder="Enter Your Pincode" id="pincode"  formControlName="pincode">
+            <span class="text-danger" *ngIf="field.pincode.invalid && field.pincode.touched">Pincode is required</span><br>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio"  id="dot-1" value="Male" formControlName="gender">
+          <input type="radio"  id="dot-2" value="Female" formControlName="gender">
+          
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" class="registerbtn" (click)="save()" value="Register">
+          <input type="submit" (click)="handleClear()" style="margin-left: 50px;" value="Cancel">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+<!-- <form [formGroup]="registrationForm">
+  <div class="container">
+   
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    <i class="fa fa-user icon"></i><input type="text" placeholder="Enter Your First Name" formControlName="firstName" id="firstName">
+    <span class="text-danger" *ngIf="field.firstName.invalid && field.firstName.touched">Fullname is </span><br>
+    <label><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Your Last Name" formControlName="lastName" id="lastName">
+    <span class="text-danger" *ngIf="field.lastName.invalid && field.lastName.touched">Last name is </span><br>
+    <label for="mobile"><b>Mobile Number</b></label>
+    <input type="text" placeholder="Enter Your Mobile Number" formControlName="mobile" id="mobile">
+    <span class="text-danger" *ngIf="field.mobile.invalid && field.mobile.touched">Mobile number is </span><br>
+    <label for="gender"><b>Gender</b></label>
+    <input type="text" placeholder="Enter Your Gender" formControlName="gender" id="gender">
+    <span class="text-danger" *ngIf="field.gender.invalid && field.gender.touched">Gender is </span><br>
+    <label for="address"><b>Address</b></label>
+    <input type="text" placeholder="Enter Your Address" formControlName="address" id="address">
+    <span class="text-danger" *ngIf="field.address.invalid && field.address.touched">Adress is </span><br>
+    <label for="city"><b>City</b></label>
+    <input type="text" placeholder="Enter Your City" formControlName="city" id="city">
+    <span class="text-danger" *ngIf="field.city.invalid && field.city.touched">Email is </span><br>
+    <label for="pincode"><b>Pincode</b></label>
+    <input type="text" placeholder="Enter Your Pincode" formControlName="pincode" id="pincode">
+    <span class="text-danger" *ngIf="field.pincode.invalid && field.pincode.touched">Pincode is </span><br>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="someone@abc.com" formControlName="email" id="email" >
+    <span class="text-danger" *ngIf="field.email.invalid && field.email.touched">Email is </span><br>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" formControlName="password" id="password">
+    <span class="text-danger" *ngIf="field.password.invalid && field.password.touched">Password is </span><br>
+    <hr>
+   
+
+    <button type="button" [disabled]="registrationForm.invalid" class="btn btn-primary" (click)="save()">Register</button>
+  </div>
+</form> -->
+
+
+</body>
+</html>

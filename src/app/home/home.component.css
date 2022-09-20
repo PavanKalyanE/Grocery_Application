@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(https://previews.123rf.com/images/baibakova/baibakova1908/baibakova190800110/129010048-assorted-indian-food-on-black-background-indian-cuisine-top-view-with-copy-space-panorama-banner.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #ff7200;
+}
+
+.search{
+    width: 330px;
+    float: left;
+    margin-left: 270px;
+}
+
+.srch{
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #ff7200;
+    margin-top: 13px;
+    color: #fff;
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.btn{
+    width: 100px;
+    height: 40px;
+    background: #ff7200;
+    border: 2px solid #ff7200;
+    margin-top: 13px;
+    color: #fff;
+    font-size: 15px;
+    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.btn:hover{
+    color: #000;
+}
+
+.btn:focus{
+    outline: none;
+}
+
+.srch:focus{
+    outline: none;
+}
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+    color: #ff7200;
+}
+
+
+
+.content .cn a{
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+}
+
+.cn:hover{
+    background-color: #fff;
+}
+
+.content span{
+    color: rgb(246, 249, 250);
+    font-size: 65px
+
+}
+
+.form{
+    width: 270px;
+    height: 380px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top: -20px;
+    left: 870px;
+    transform: translate(0%,-5%);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form h2{
+    width: 220px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #ff7200;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+}
+
+.form input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #ff7200;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #fff;
+    font-family: Arial;
+}
+
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnn:hover{
+    background: #fff;
+    color: #ff7200;
+}
+.btnn a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.form .link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+.form .link a{
+    text-decoration: none;
+    color: #ff7200;
+}
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/**** Start Content Part 2 ****/
+
+.interior-font{ font-size:36px; text-transform:uppercase; padding:20px 0px 30px; font-weight:600;
+    text-align:center; color:#000; text-shadow: 2px 2px 3px #333;}
+    .content-part-2-inner{background-color: rgba(255,255,255,.5); padding:20px 10px 20px; margin:50px 200px;
+    border-radius:3px; width:1170px; float:left;}
+    .content-interior{ width:525px; padding:10px 25px; float:left;}
+    .content-interior-h3{ color:#000; font-size:18px; text-shadow: 2px 2px 3px #333; padding:10px 0px; text-align:center;}
+    .content-interior-p{ color:#000; padding:5px 0px 10px; font-size:14px; line-height:26px; text-align:justify;}
+    /**** End Content Part 2 ****/
+    
+    /**** Start Content Part 3 ****/
+    .content-part-3{ width:1200px; float:left; padding:20px 0px;}
+    .content-part-3-left{ width:230px; float:left; padding:10px;}
+    .content-part-3-right{ width:330px; float:left; padding:5px 10px 10px; height:170px; line-height:26px; text-align:justify;}
+    .content-part-3-right-h4{ font-weight:600; color:#000; padding:0px;}
+    .margin_5{ margin:5px 0px; float:left;}
+    .margin_p3{ margin:10px 0px 5px;}
+    .price{color:#000; padding:5px 0px; font-weight:bold; font-size:15px;}
+    .green{ color:#7db549; font-weight:bold; font-size:16px;}
+    .order-now{ color:#FFF; background:#7db549; padding:5px 15px; border-radius:2px; text-decoration:none; margin:5px auto;}
+    .order-now:hover{background:#689242;}
+    /**** End Content Part 3 ****/
+    
+   /**** Start Footer ****/
+   .footer{ width:1200px; float:left; padding:20px 0px; background:#333; }
+   .footer-parts{ width:475px; padding:0px 50px; float:right; }
+   .footer-parts-h3{ font-size:18px; font-weight:600; color:#FFF; padding:10px 0px; }
+   .footer-parts-p{ color:#000; line-height:24px; text-align:justify; color:#FFF; }
+   .footer-icons{list-style:none;}
+   .footer-icons ul{list-style:none; padding:0px;}
+   .footer-icons ul li{float:left; padding:0px 25px 0px 5px; text-transform:uppercase;}
+   .footer-icons ul li a{color:#FFF; font-weight:600; font-size:18px;}
+   .footer-icons ul li a:hover{ color:#CCC;}
+   .footer-bottom{ width:1170px; float:left; padding:15px; text-align:center; color:#FFF; font-size:13px; background:#000;}
+   .white{ color:#FFF; text-decoration:none;}
+   .white a{ color:#FFF; text-decoration:none;}
+   .white a:hover{ color:#CCC;}
+   /**** End Footer ****/

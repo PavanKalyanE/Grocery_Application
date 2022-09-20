@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form [formGroup]="paymentForm">
+  
+          <div class="row">
+            
+  
+            <div class="col-50">
+              <h3>Payment</h3>
+              <label for="fname">Accepted Cards</label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa"  style="color:navy;"></i>
+                <i class="fa fa-cc-visa" style="font-size:36px"></i>
+                <i class="fa fa-cc-RuPay" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                
+              </div>
+              <label for="cname">Name on Card</label>
+              <input type="text" id="cname" name="cardName" placeholder="Card Holder Name" formControlName="cardName">
+              <span class="text-danger" *ngIf="field.cardName.invalid && field.cardName.touched">Fullname is required</span><br>
+
+              <label for="cname">Mobile Number</label>
+              <input type="text" id="cname" name="Mobile" placeholder="xxxx123456" formControlName="mobile">
+              <span class="text-danger" *ngIf="field.mobile.invalid && field.mobile.touched">Mobile Number is required</span><br>
+              <!-- <div *ngIf="Mobile.invalid && (Mobile.dirty || Mobile.touched)" class="alert">
+                <div *ngIf="Mobile.errors?.['required']">Mobile number required</div>
+              </div> -->
+
+
+              <label for="ccnum"> Card Number</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" formControlName="cardNumber">
+              <span class="text-danger" *ngIf="field.cardNumber.invalid && field.cardNumber.touched">Card Number is required</span><br>
+              <label for="expmonth">Exp Month</label>
+              <input type="text" id="expmonth" name="expmonth" placeholder="Expiry Month" formControlName="month">
+              <span class="text-danger" *ngIf="field.month.invalid && field.month.touched">Exp Month is required</span><br>
+              <div class="row">
+                <div class="col-50">
+                  <label for="expyear">Exp Year</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="Expiry Year" formControlName="year">
+                  <span class="text-danger" *ngIf="field.year.invalid && field.year.touched">Exp Year is required</span><br>
+                </div>
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="CVV" formControlName="CVV">
+                  <span class="text-danger" *ngIf="field.CVV.invalid && field.CVV.touched">CVV is required</span><br>
+                </div>
+                <div class="col-50">
+                    <label for="Amount">Amount</label>
+                    <input type="text" id="Amount" name="Amount" placeholder="Transaction Amount" formControlName="amount">
+                    <span class="text-danger" *ngIf="field.amount.invalid && field.amount.touched">Amount is required</span><br>
+                  </div>
+              </div>
+            </div>
+  
+          </div>
+          
+          <input type="submit" value="Make Payment" [disabled]="paymentForm.invalid" class="btn" (click)="payment()">
+        </form>
+      </div>
+    </div>
+  
+    
+  </div>
