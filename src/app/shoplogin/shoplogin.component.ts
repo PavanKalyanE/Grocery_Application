@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-Shoplogin',
-  templateUrl: './Shoplogin.component.html',
-  styleUrls: ['./Shoplogin.component.css']
+  templateUrl: './shoplogin.component.html',
+  styleUrls: ['./shoplogin.component.css']
 })
 export class ShoploginComponent implements OnInit {
 
