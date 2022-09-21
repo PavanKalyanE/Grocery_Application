@@ -13,15 +13,15 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
   getLoginList(): Observable<any[]> {
-    return this.http.get<any>('http://localhost:5184/api/Registrations');
+    return this.http.get<any>('http://localhost:5184/api/Admin/Get_Users');
   }
   addLoginList(val: any) {
-    return this.http.post<any>('http://localhost:5184/api/Registrations/Login', val);
+    return this.http.post<any>('http://localhost:5184/api/User/User_Login', val);
   }
 
   addRegistrationList(val: any) {
-    return this.http.post<any>("http://localhost:5184/api/Registrations/create", val);
-  }
+    return this.http.post<any>("http://localhost:5184/api/User/User_Registration", val);
+  }                            
   getRegistrationData() {
     return this.http.get("http://localhost:5184/api/Registrations");
   }

@@ -1,25 +1,156 @@
-
-<body>
-   
-<div class="container">
-    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="100" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16" routerLink="/Cart">
-        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-      </svg>
-    <div class="row">
-        <ng-container *ngFor="let item of productList "> 
-            <div class="card col-md-3">
-                <img src="{{item.image}}" alt="">
-                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
-                <!-- <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p> -->
-                <p><strong>Price:</strong> ₹{{item.price}}</p>
-                <button class="btn btn-danger" (click)=addtocart(item)>Add to Cart</button>
-            </div>
-       </ng-container>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="order.component.css" />
+  </head>
+  <body>
+    <div
+      *ngIf=""
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Success !</strong> You have Registered...
+      <button
+        onclick="CloseAlert()"
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-</div>
+ <div class="container">
+    <div class="title">Confirm Order</div>
+    <div class="content">
+      <form [formGroup]="registrationForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input
+              type="text"
+              placeholder="Enter Your Registered Name"
+              id="firstName"
+              formControlName="name"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registrationForm.get('name').invalid &&
+                registrationForm.get('name').touched
+              "
+              >First name is required</span
+            ><br />
+          </div>
+          <div class="input-box">
+            <span class="details">Item Name</span>
+            <input
+              type="text"
+              placeholder="Enter Your Last Name"
+              id="lastName"
+              formControlName="itemName"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registrationForm.get('itemName').invalid &&
+                registrationForm.get('itemName').touched
+              "
+              >Last name is required</span
+            ><br />
+          </div>
+          <div class="input-box">
+            <span class="details">Quantity</span>
+            <input
+              type="text"
+              placeholder="Enter Your Mobile Number"
+              id="mobile"
+              formControlName="quantity"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registrationForm.get('quantity').invalid &&
+                registrationForm.get('quantity').touched
+              "
+              >Mobile number is required</span
+            ><br />
+          </div>
+          <div class="input-box">
+            <span class="details">Price</span>
+            <input
+              type="text"
+              placeholder="Enter Price"
+              id="email"
+              formControlName="price"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registrationForm.get('price').invalid &&
+                registrationForm.get('price').touched
+              "
+              >Email is required</span
+            ><br />
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input
+              type="password"
+              placeholder="Enter Address"
+              id="password"
+              formControlName="address"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                registrationForm.get('address').invalid &&
+                registrationForm.get('address').touched
+              "
+              >Password is required</span
+            ><br />
+          </div>
+         
+        </div>
+        <div class="gender-details">
+          <input
+            type="radio"
+            id="dot-1"
+            value="Male"
+            formControlName="timeslot"
+          />
+          <input
+            type="radio"
+            id="dot-2"
+            value="Female"
+            formControlName="timeslot"
+          />
+
+          <span class="gender-title">Time Slot</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Home(7 AM to 9 PM)</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Ofice(10 AM to 5 PM)</span>
+            </label>
+          </div>
+        </div>
+        <div class="button"> 
+   
+    <button  style="background: linear-gradient(-135deg, #71b7e6, #9b59b6); "   type="submit" (click)="save()" [disabled]="registrationForm.invalid" class="btn btn-primary">
+            Register
+          </button> 
+ 
+   <button style="background: linear-gradient(-135deg, #71b7e6, #9b59b6); "   type="submit" (click)="handleClear()"  class="btn btn-primary">
+            Clear
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
-<!-- <button routerLink="cart" class="btn btn-primary">
-    <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
-    <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
-</button> -->
+</html> 

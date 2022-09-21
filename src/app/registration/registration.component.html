@@ -1,121 +1,361 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="registration.component.css">
-</head>
-<body>
-  <div class="container">
-    <div class="title">Registration</div>
-    <div class="content">
-      <form [formGroup]="registrationForm">
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">First Name</span>
-            <input type="text" placeholder="Enter Your First Name" id="firstName"   formControlName="firstName">
-            <span class="text-danger" *ngIf="field.firstName.invalid && field.firstName.touched">Firstname is </span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter Your Last Name" id="lastName"  formControlName="lastName">
-            <span class="text-danger" *ngIf="field.lastName.invalid && field.lastName.touched">Last name is </span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">Mobile number</span>
-            <input type="text" placeholder="Enter Your Mobile Number" id="mobile"  formControlName="mobile">
-            <span class="text-danger" *ngIf="field.mobile.invalid && field.mobile.touched">Mobile number is </span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">Email</span>
-            <input type="text" placeholder="Enter Email"  id="email"   formControlName="email">
-            <span class="text-danger" *ngIf="field.email.invalid && field.email.touched">Email is required </span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="password" placeholder="Enter Password"  id="password"   formControlName="password">
-            <span class="text-danger" *ngIf="field.password.invalid && field.password.touched">Password is required </span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">Address </span>
-            <input type="text" placeholder="Enter Your Address" id="address"  formControlName="address">
-            <span class="text-danger" *ngIf="field.address.invalid && field.address.touched">Address is required</span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">City </span>
-            <input type="text" placeholder="Enter Your City" id="city"  formControlName="City">
-            <span class="text-danger" *ngIf="field.city.invalid && field.city.touched">City is required</span><br>
-          </div>
-          <div class="input-box">
-            <span class="details">Pincode </span>
-            <input type="text" placeholder="Enter Your Pincode" id="pincode"  formControlName="pincode">
-            <span class="text-danger" *ngIf="field.pincode.invalid && field.pincode.touched">Pincode is required</span><br>
-          </div>
-        </div>
-        <div class="gender-details">
-          <input type="radio"  id="dot-1" value="Male" formControlName="gender">
-          <input type="radio"  id="dot-2" value="Female" formControlName="gender">
-          
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-          
-          </div>
-        </div>
-        <div class="button">
-          <input type="submit" class="registerbtn" (click)="save()" value="Register">
-          <input type="submit" (click)="handleClear()" style="margin-left: 50px;" value="Cancel">
-        </div>
-      </form>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="registration.component.css" />
+  </head>
+  <body>
+    <div
+      *ngIf=""
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Success !</strong> You have Registered...
+      <button
+        onclick="CloseAlert()"
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-  </div>
 
+    <!-- <form [formGroup]="registrationForm" action="/action_page.php">
+      <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr />
+        <label for="fname"><b>First Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your First Name"
+          formControlName="fname"
+          id="fname"
+        />
+        <div
+          class="text-danger"
+          *ngIf="
+            RForm.get('Fname').hasError('required') &&
+            RForm.get('Fname').touched
+          "
+        >
+          First Name is required
+        </div>
+        <label for="lname"><b>Last Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your Last Name"
+          formControlName="lname"
+          id="lname"
+        />
+         <div
+          class="text-danger"
+          *ngIf="
+            RForm.get('Lname').hasError('required') &&
+            RForm.get('Lname').touched
+          "
+        >
+          Last Name is required
+        </div> 
 
-<!-- <form [formGroup]="registrationForm">
-  <div class="container">
+        <label for="mobile"><b>Mobile Number</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your Mobile Number"
+          formControlName="mobile"
+          id="mobile"
+          required
+        />
+
+         <div
+          class="text-danger"
+          *ngIf="RForm.get('Mobile').invalid && RForm.get('Mobile').touched"
+        >
+          Mobile number must be of 10 digits
+        </div>
+
+        <label for="gender"><b>Gender</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your Gender"
+          formControlName="gender"
+          id="gender"
+          required
+        />
+        <label for="address"><b>Address</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your Address"
+          formControlName="address"
+          id="address"
+        />
+        <div
+          class="text-danger"
+          *ngIf="RForm.get('Address').invalid && RForm.get('Address').touched"
+        >
+          Address is required
+        </div>
+
+        <label for="city"><b>City</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your City"
+          formControlName="city"
+          id="city"
+        />
+        <div
+          class="text-danger"
+          *ngIf="RForm.get('City').invalid && RForm.get('City').touched"
+        >
+          This field is required
+        </div>
+
+        <label for="pincode"><b>Pincode</b></label>
+        <input
+          type="text"
+          placeholder="Enter Your Pincode"
+          formControlName="pincode"
+          id="pincode"
+        />
+        <div
+          class="text-danger"
+          *ngIf="RForm.get('Pincode').invalid && RForm.get('Pincode').touched"
+        >
+          This field is required
+        </div>
+
+        <label for="email"><b>Email</b></label>
+        <input
+          type="text"
+          placeholder="Enter Email"
+          formControlName="email"
+          id="email"
+        />
+        <div
+          class="text-danger"
+          *ngIf="RForm.get('Email').invalid && RForm.get('Email').touched"
+        >
+          Email must be in correct format
+        </div>
+
+        <label for="password"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          formControlName="password"
+          id="password"
+        />
+        <div
+          class="text-danger"
+          *ngIf="RForm.get('Password').invalid && RForm.get('Password').touched"
+        >
+          Password must be in correct format
+        </div>
+
+        <hr />
+
+        <button
+          type="submit"
+          (click)="save()"
+          [disabled]="RForm.invalid"
+          class="btn btn-primary"
+        >
+          Register
+        </button>
+        
+      </div>
+
+      <div class="container signin">
+        <p>
+          Already have an account? <a href="#" routerLink="/Login">Sign in</a>.
+        </p>
+      </div>
+    </form> -->
+
+     <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+        <form [formGroup]="registrationForm">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">First Name</span>
+              <input
+                type="text"
+                placeholder="Enter Your First Name"
+                id="firstName"
+                formControlName="fname"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('fname').invalid &&
+                  registrationForm.get('fname').touched
+                "
+                >First name is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Last Name</span>
+              <input
+                type="text"
+                placeholder="Enter Your Last Name"
+                id="lastName"
+                formControlName="lname"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('lname').invalid &&
+                  registrationForm.get('lname').touched
+                "
+                >Last name is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Mobile number</span>
+              <input
+                type="text"
+                placeholder="Enter Your Mobile Number"
+                id="mobile"
+                formControlName="mobile"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('mobile').invalid &&
+                  registrationForm.get('mobile').touched
+                "
+                >Mobile number is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                id="email"
+                formControlName="email"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('email').invalid &&
+                  registrationForm.get('email').touched
+                "
+                >Email is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input
+                type="password"
+                placeholder="Enter Password"
+                id="password"
+                formControlName="password"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('password').invalid &&
+                  registrationForm.get('password').touched
+                "
+                >Password is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Address </span>
+              <input
+                type="text"
+                placeholder="Enter Your Address"
+                id="address"
+                formControlName="address"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('address').invalid &&
+                  registrationForm.get('address').touched
+                "
+                >Address is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">City </span>
+              <input
+                type="text"
+                placeholder="Enter Your City"
+                id="city"
+                formControlName="city"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('city').invalid &&
+                  registrationForm.get('city').touched
+                "
+                >Pincode is required</span
+              ><br />
+            </div>
+            <div class="input-box">
+              <span class="details">Pincode </span>
+              <input
+                type="text"
+                placeholder="Enter Your Pincode"
+                id="pincode"
+                formControlName="pincode"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  registrationForm.get('pincode').invalid &&
+                  registrationForm.get('pincode').touched
+                "
+                >Pincode is required</span
+              ><br />
+            </div>
+          </div>
+          <div class="gender-details">
+            <input
+              type="radio"
+              id="dot-1"
+              value="Male"
+              formControlName="gender"
+            />
+            <input
+              type="radio"
+              id="dot-2"
+              value="Female"
+              formControlName="gender"
+            />
+
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+            </div>
+          </div>
+          <div class="button"> 
+     
+      <button  style="background: linear-gradient(-135deg, #71b7e6, #9b59b6); "   type="submit" (click)="save()" [disabled]="registrationForm.invalid" class="btn btn-primary">
+              Register
+            </button> 
    
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-    <i class="fa fa-user icon"></i><input type="text" placeholder="Enter Your First Name" formControlName="firstName" id="firstName">
-    <span class="text-danger" *ngIf="field.firstName.invalid && field.firstName.touched">Fullname is </span><br>
-    <label><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Your Last Name" formControlName="lastName" id="lastName">
-    <span class="text-danger" *ngIf="field.lastName.invalid && field.lastName.touched">Last name is </span><br>
-    <label for="mobile"><b>Mobile Number</b></label>
-    <input type="text" placeholder="Enter Your Mobile Number" formControlName="mobile" id="mobile">
-    <span class="text-danger" *ngIf="field.mobile.invalid && field.mobile.touched">Mobile number is </span><br>
-    <label for="gender"><b>Gender</b></label>
-    <input type="text" placeholder="Enter Your Gender" formControlName="gender" id="gender">
-    <span class="text-danger" *ngIf="field.gender.invalid && field.gender.touched">Gender is </span><br>
-    <label for="address"><b>Address</b></label>
-    <input type="text" placeholder="Enter Your Address" formControlName="address" id="address">
-    <span class="text-danger" *ngIf="field.address.invalid && field.address.touched">Adress is </span><br>
-    <label for="city"><b>City</b></label>
-    <input type="text" placeholder="Enter Your City" formControlName="city" id="city">
-    <span class="text-danger" *ngIf="field.city.invalid && field.city.touched">Email is </span><br>
-    <label for="pincode"><b>Pincode</b></label>
-    <input type="text" placeholder="Enter Your Pincode" formControlName="pincode" id="pincode">
-    <span class="text-danger" *ngIf="field.pincode.invalid && field.pincode.touched">Pincode is </span><br>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="someone@abc.com" formControlName="email" id="email" >
-    <span class="text-danger" *ngIf="field.email.invalid && field.email.touched">Email is </span><br>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" formControlName="password" id="password">
-    <span class="text-danger" *ngIf="field.password.invalid && field.password.touched">Password is </span><br>
-    <hr>
-   
+     <button style="background: linear-gradient(-135deg, #71b7e6, #9b59b6); "   type="submit" (click)="handleClear()"  class="btn btn-primary">
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html> 
+ 
 
-    <button type="button" [disabled]="registrationForm.invalid" class="btn btn-primary" (click)="save()">Register</button>
-  </div>
-</form> -->
-
-
-</body>
-</html>

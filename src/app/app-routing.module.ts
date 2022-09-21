@@ -3,18 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdloginComponent } from './adlogin/adlogin.component';
 import { AdmenuComponent } from './admenu/admenu.component';
 import { AduserComponent } from './aduser/aduser.component';
+import { BiscuitsComponent } from './biscuits/biscuits.component';
 import { CartComponent } from './cart/cart.component';
+import { ColddrinksComponent } from './colddrinks/colddrinks.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FruitsComponent } from './fruits/fruits.component';
 import { HomeComponent } from './home/home.component';
-import { InvalidComponent } from './invalid/invalid.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrderComponent } from './order/order.component';
 import { PaymentComponent } from './payment/payment.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { ShoploginComponent } from './shoplogin/shoplogin.component';
-import { ShopresComponent } from './shopres/shopres.component';
+import { VegetableComponent } from './vegetable/vegetable.component';
+import { ShopRegisterComponent } from './shop-register/shop-register.component';
+import { ShopLoginComponent } from './shop-login/shop-login.component';
+import { ShopDashboardComponent } from './shop-dashboard/shop-dashboard.component';
+import { MyorderComponent } from './myorder/myorder.component';
 
 
 const routes: Routes = [
@@ -25,14 +29,21 @@ const routes: Routes = [
   { path: 'Cart', component: CartComponent },
   { path: 'Order', component: OrderComponent },
   { path: 'Payment', component: PaymentComponent },
-  { path: 'Invalid', component: InvalidComponent },
   { path: 'Admin', component: AdloginComponent },
   { path: 'Dashboard', component: DashboardComponent },
   { path: 'AdMenu', component: AdmenuComponent },
   { path: 'AdUser', component: AduserComponent },
   { path: 'Fruits', component: FruitsComponent },
-  {path: 'Shoplogin', component:ShoploginComponent},
-  {path :'Shopres', component:ShopresComponent}
+  {path:'Biscuits', component:BiscuitsComponent},
+  {path: 'Vegetables' , component:VegetableComponent},
+  {path: 'colddrinks', component:ColddrinksComponent},
+  {path : 'Cart', component:CartComponent},
+  {path : 'ShopLogin', component:ShopLoginComponent},
+  {path : 'ShopRegister', component:ShopRegisterComponent},
+  {path : 'ShopDashboard', component:ShopDashboardComponent},
+  {path : 'MyOrder', component:MyorderComponent}
+
+
 
 
 ];

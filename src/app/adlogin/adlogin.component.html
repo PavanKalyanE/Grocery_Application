@@ -13,23 +13,25 @@
     </div>
 
     <!-- Login Form -->
-    <form [formGroup]="loginForm">
+    <form [formGroup]="adminlogin">
      
-      <input type="text" id="email" class="fadeIn second" name="login" placeholder="Email" formControlName="email" id="email">
-      <span class="text-danger" *ngIf="field.email.invalid && field.email.touched">Email is required</span><br>
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" formControlName="password" id="password">
-      <span class="text-danger" *ngIf="field.password.invalid && field.password.touched">Password is required</span><br>
-      <input type="submit"  [disabled]="loginForm.invalid" class="fadeIn fourth" value="Log In" (click)="AdminLogin() ">
-      <a href="" routerLink="/Registration">SignUp</a>
+      <input type="text" id="email" formControlName="email" class="fadeIn second" name="login" placeholder="Email" >
+      <div
+      class="text-danger"
+      *ngIf="adminlogin.get('email').invalid && adminlogin.get('email').touched" >Enter correct email</div>
+                   
+      <input type="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="Password" >
+      <div
+      class="text-danger"
+      *ngIf="adminlogin.get('password').invalid && adminlogin.get('password').touched" >Enter Password</div>
+      <input type="submit"  class="fadeIn fourth" value="Log In" (click)="AdminLogin() ">
       
         
-       
-      
+           
      
       
       <!-- <input type="text" id="name" class="form-control" formControlName="name" required> <div *ngIf="Email.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div> -->
     </form>
-    
     
     
 

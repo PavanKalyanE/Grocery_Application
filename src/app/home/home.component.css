@@ -5,10 +5,12 @@
 
 .main{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(https://previews.123rf.com/images/baibakova/baibakova1908/baibakova190800110/129010048-assorted-indian-food-on-black-background-indian-cuisine-top-view-with-copy-space-panorama-banner.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+    background-image:  url("src\assets\images\Home Page 1.jpg");
     background-position: center;
     background-size: cover;
     height: 100vh;
+
 }
 
 .navbar{
@@ -134,7 +136,7 @@ ul li a:hover{
 }
 
 .content span{
-    color: rgb(246, 249, 250);
+    color: rgb(30, 92, 112);
     font-size: 65px
 
 }

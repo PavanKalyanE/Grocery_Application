@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -11,42 +12,46 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   
-loginForm:any;
-  constructor(private http: HttpClient, private router: Router,private formBuilder:FormBuilder) {
-    this.LoginIDPwd();
+  LoginForm:any;
+
+  constructor(private http: HttpClient, private router: Router, private fb:FormBuilder) {
+     
    }
 
 
-  LoginIDPwd():void {
-    this.loginForm = this.formBuilder.group({
-      email: ['',[Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z.-]+\\.[com]{3}$')]],
-      password:['',Validators.required]
-    });
-  }
+ 
 
-  AdminLogin() {
-    console.log(this.LoginIDPwd)
+  UserLogin() {
+    console.log(this.LoginForm)
 
-    this.http.post('http://localhost:5184/api/Registrations/Login', this.loginForm.value, { responseType: 'text' }).subscribe(users => {
+    this.http.post('http://localhost:5184/api/User/User_Login', this.LoginForm.value, { responseType: 'text' }).subscribe(users => {
       console.log(users)
-      if (users == "Login Successfull") {
+      if (users == "Login Successfull")
+       {
         this.router.navigate(['/Menu']);
         
-      }
-    },
-    error=>{
+      }   
+           
+     },
+     error=>{
       if(error){
         console.log(error);
         alert("Sorry unable to login");
       }
     }
+    
     );
    
   }
  
 
   ngOnInit(): void {
+
+    this.LoginForm = new FormGroup({
+      'email': new FormControl ('',[Validators.required, Validators.email]),
+      'password':new FormControl('',Validators.required)
+    });
     
   }
-  get field() { return this.loginForm.controls; }
+
 }

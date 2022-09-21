@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { Router } from '@angular/router';
+import { GetService } from '../Services/get.service';
 
 @Component({
   selector: 'app-aduser',

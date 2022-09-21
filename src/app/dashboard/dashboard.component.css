@@ -1,12 +1,9 @@
-body {
+/* body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
-    /* background-image: url('../../assets/about-img.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%; */
+    
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(94, 24, 24) 0%, rgb(180, 74, 79) 35%, rgb(231, 34, 60) 100%);
+    background: linear-gradient(90deg, rgb(119, 54, 54) 0%, rgb(180, 74, 79) 35%, rgb(231, 34, 60) 100%);
     
   }
   svg{
@@ -22,3 +19,41 @@ body {
     margin-left: 65.5%;
     margin-top: -3%;
   }
+  .btn {
+    
+    color: blue;
+  } */
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: whitesmoke;
+    background-image: url(https://img.freepik.com/premium-photo/abstract-blur-green-color-background_7182-1948.jpg?w=740);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+  
+  }
+    svg{
+        margin-left: 30%;
+        margin-top: 7%;
+    }
+    
+    #heading1{
+      margin-left: 31%;
+      margin-top: 1%;
+    }
+    #heading2{
+      margin-left: 66%;
+      margin-top: -3%;
+    }
+    #heading3{
+      margin-left: 25%;
+      margin-top: 12%;
+      margin-bottom: -17%;
+    }
+    #heading4{
+      margin-left: 64%;
+      margin-top: 13%;
+      margin-bottom: -15%;
+    }
